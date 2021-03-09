@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 app.set("view engine", "ejs");
-
+const port = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
@@ -87,6 +87,7 @@ app.post("/delete", async (req, res) => {
   res.redirect("/");
 });
 
-app.listen(3000, function () {
+app.listen(port, function () {
+  
   console.log("Server started on port 3000");
 });
